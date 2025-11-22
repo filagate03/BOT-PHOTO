@@ -1,0 +1,6 @@
+aiogram>=3.4.1,<4
+aiosqlite>=0.19
+pydantic>=2.5
+aiohttp>=3.9
+python-dotenv>=1.0
+pydantic-settings>=2.5
