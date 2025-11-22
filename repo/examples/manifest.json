@@ -1,0 +1,320 @@
+[
+  {
+    "style": "cinematic",
+    "file": "Gemini_Generated_Image_cricdcricdcricdc.png",
+    "title": "Кинематографический",
+    "caption": "Драматичное освещение, глубокие тени и насыщенные цвета. Идеально для создания атмосферных портретов."
+  },
+  {
+    "style": "fashion_shoot",
+    "file": "preset_fashion_shoot.jpg",
+    "title": "Фэшн-съемка",
+    "caption": "Студийный свет, безупречная ретушь и акцент на деталях. Превратите ваше фото в обложку журнала."
+  },
+  {
+    "style": "vintage_film",
+    "file": "preset_vintage_film.jpg",
+    "title": "Винтаж",
+    "caption": "Теплые тона, зернистость и эффект старой пленки. Придайте вашим снимкам ностальгический шарм."
+  },
+  {
+    "style": "black_and_white",
+    "file": "preset_black_and_white.jpg",
+    "title": "Черно-белое",
+    "caption": "Классический монохром. Акцент на форме, текстуре и эмоциях."
+  },
+  {
+    "style": "neon_night",
+    "file": "preset_neon_night.jpg",
+    "title": "Неоновая ночь",
+    "caption": "Яркие неоновые вывески, отражения на мокром асфальте и атмосфера киберпанка."
+  },
+  {
+    "style": "sunny_day",
+    "file": "preset_sunny_day.jpg",
+    "title": "Солнечный день",
+    "caption": "Яркое солнце, голубое небо и ощущение летнего счастья."
+  },
+  {
+    "style": "fantasy_world",
+    "file": "preset_fantasy_world.jpg",
+    "title": "Фэнтези",
+    "caption": "Сказочные пейзажи, волшебные существа и эпическая атмосфера."
+  },
+  {
+    "style": "sci_fi_future",
+    "file": "preset_sci_fi_future.jpg",
+    "title": "Научная фантастика",
+    "caption": "Футуристические города, космические корабли и технологии будущего."
+  },
+  {
+    "style": "business_portrait",
+    "file": "preset_business_portrait.jpg",
+    "title": "Деловой портрет",
+    "caption": "Строгий и профессиональный образ. Идеально для резюме и корпоративных сайтов."
+  },
+  {
+    "style": "street_style",
+    "file": "preset_street_style.jpg",
+    "title": "Стрит-стайл",
+    "caption": "Динамичные и живые кадры из городской жизни."
+  },
+  {
+    "style": "watercolor_art",
+    "file": "preset_watercolor_art.jpg",
+    "title": "Акварель",
+    "caption": "Превратите ваше фото в произведение искусства, написанное акварелью."
+  },
+  {
+    "style": "oil_painting",
+    "file": "preset_oil_painting.jpg",
+    "title": "Масляная живопись",
+    "caption": "Эффект картины, написанной маслом. Глубокие цвета и выразительные мазки."
+  },
+  {
+    "style": "pop_art",
+    "file": "preset_pop_art.jpg",
+    "title": "Поп-арт",
+    "caption": "Яркие цвета, смелые контуры и дух 60-х в стиле Энди Уорхола."
+  },
+  {
+    "style": "steampunk",
+    "file": "preset_steampunk.jpg",
+    "title": "Стимпанк",
+    "caption": "Механизмы, шестеренки, паровые двигатели и атмосфера викторианской эпохи."
+  },
+  {
+    "style": "gothic",
+    "file": "preset_gothic.jpg",
+    "title": "Готика",
+    "caption": "Мрачная и таинственная атмосфера. Темные тона, старинная архитектура и драматизм."
+  },
+  {
+    "style": "minimalism",
+    "file": "preset_minimalism.jpg",
+    "title": "Минимализм",
+    "caption": "Чистые линии, простые формы и много свободного пространства. Акцент на главном."
+  },
+  {
+    "style": "wild_west",
+    "file": "preset_wild_west.jpg",
+    "title": "Дикий Запад",
+    "caption": "Ковбои, прерии, салуны и дух приключений."
+  },
+  {
+    "style": "underwater",
+    "file": "preset_underwater.jpg",
+    "title": "Подводный мир",
+    "caption": "Загадочные глубины, коралловые рифы и игра света в воде."
+  },
+  {
+    "style": "space_odyssey",
+    "file": "preset_space_odyssey.jpg",
+    "title": "Космическая одиссея",
+    "caption": "Бескрайний космос, далекие галактики и планеты."
+  },
+  {
+    "style": "zombie_apocalypse",
+    "file": "preset_zombie_apocalypse.jpg",
+    "title": "Зомби-апокалипсис",
+    "caption": "Выживание в мире, захваченном зомби. Постапокалиптические пейзажи и напряженная атмосфера."
+  },
+  {
+    "style": "anime",
+    "file": "preset_anime.jpg",
+    "title": "Аниме",
+    "caption": "Станьте героем японской анимации. Характерная рисовка и яркие эмоции."
+  },
+  {
+    "style": "cartoon",
+    "file": "preset_cartoon.jpg",
+    "title": "Мультфильм",
+    "caption": "Превратитесь в персонажа классического мультфильма."
+  },
+  {
+    "style": "pixel_art",
+    "file": "preset_pixel_art.jpg",
+    "title": "Пиксель-арт",
+    "caption": "Стиль 8-битных видеоигр. Ностальгия и оригинальность."
+  },
+  {
+    "style": "superhero",
+    "file": "preset_superhero.jpg",
+    "title": "Супергерой",
+    "caption": "Примерьте на себя образ супергероя из комиксов."
+  },
+  {
+    "style": "noir_film",
+    "file": "preset_noir_film.jpg",
+    "title": "Нуар",
+    "caption": "Атмосфера старых детективных фильмов. Глубокие тени, контрастный свет и интрига."
+  },
+  {
+    "style": "romantic_evening",
+    "file": "preset_romantic_evening.jpg",
+    "title": "Романтический вечер",
+    "caption": "Теплый свет свечей, уютная обстановка и романтическое настроение."
+  },
+  {
+    "style": "horror",
+    "file": "preset_horror.jpg",
+    "title": "Хоррор",
+    "caption": "Создайте пугающий и леденящий душу образ."
+  },
+  {
+    "style": "retro_wave",
+    "file": "preset_retro_wave.jpg",
+    "title": "Ретровейв",
+    "caption": "Синтезаторы, пальмы, закаты и эстетика 80-х."
+  },
+  {
+    "style": "tribal",
+    "file": "preset_tribal.jpg",
+    "title": "Трайбл",
+    "caption": "Этнические мотивы, узоры и дух древних племен."
+  },
+  {
+    "style": "post_apocalyptic",
+    "file": "preset_post_apocalyptic.jpg",
+    "title": "Постапокалипсис",
+    "caption": "Разрушенные города, выжженная земля и борьба за выживание."
+  },
+  {
+    "style": "vaporwave",
+    "file": "preset_vaporwave.jpg",
+    "title": "Вейпорвейв",
+    "caption": "Античная скульптура, глитч-арт и ностальгия по 90-м."
+  },
+  {
+    "style": "disco_party",
+    "file": "preset_disco_party.jpg",
+    "title": "Диско-вечеринка",
+    "caption": "Блеск, огни, диско-шары и танцевальное настроение 70-х."
+  },
+  {
+    "style": "fairy_tale",
+    "file": "preset_fairy_tale.jpg",
+    "title": "Волшебная сказка",
+    "caption": "Станьте принцем или принцессой в волшебном королевстве."
+  },
+  {
+    "style": "viking_age",
+    "file": "preset_viking_age.jpg",
+    "title": "Эпоха викингов",
+    "caption": "Суровые северные пейзажи, драккары и доспехи."
+  },
+  {
+    "style": "ancient_egypt",
+    "file": "preset_ancient_egypt.jpg",
+    "title": "Древний Египет",
+    "caption": "Пирамиды, фараоны и мифы Древнего Египта."
+  },
+  {
+    "style": "ancient_rome",
+    "file": "preset_ancient_rome.jpg",
+    "title": "Древний Рим",
+    "caption": "Колизей, гладиаторы и величие Римской империи."
+  },
+  {
+    "style": "feudal_japan",
+    "file": "preset_feudal_japan.jpg",
+    "title": "Феодальная Япония",
+    "caption": "Самураи, гейши, цветущая сакура и традиционная архитектура."
+  },
+  {
+    "style": "pirates",
+    "file": "preset_pirates.jpg",
+    "title": "Пираты",
+    "caption": "Морские приключения, сокровища и дух свободы."
+  },
+  {
+    "style": "spy_movie",
+    "file": "preset_spy_movie.jpg",
+    "title": "Шпионский фильм",
+    "caption": "Секретные агенты, гаджеты и опасные миссии."
+  },
+  {
+    "style": "rock_star",
+    "file": "preset_rock_star.jpg",
+    "title": "Рок-звезда",
+    "caption": "Сцена, софиты, гитары и энергия рок-концерта."
+  },
+  {
+    "style": "hippie",
+    "file": "preset_hippie.jpg",
+    "title": "Хиппи",
+    "caption": "Мир, любовь, цветы и свобода 60-х."
+  },
+  {
+    "style": "cyberpunk_2077",
+    "file": "preset_cyberpunk_2077.jpg",
+    "title": "Киберпанк 2077",
+    "caption": "Высокие технологии, низкий уровень жизни. Неоновый Найт-Сити."
+  },
+  {
+    "style": "memphis_design",
+    "file": "preset_memphis_design.jpg",
+    "title": "Мемфис",
+    "caption": "Абстрактные узоры, смелые цвета и постмодернистский дизайн 80-х."
+  },
+  {
+    "style": "impressionism",
+    "file": "preset_impressionism.jpg",
+    "title": "Импрессионизм",
+    "caption": "Мягкий свет, видимые мазки и мимолетные впечатления в стиле Моне."
+  },
+  {
+    "style": "surrealism",
+    "file": "preset_surrealism.jpg",
+    "title": "Сюрреализм",
+    "caption": "Сны, фантазии и нелогичные образы в духе Сальвадора Дали."
+  },
+  {
+    "style": "cubism",
+    "file": "preset_cubism.jpg",
+    "title": "Кубизм",
+    "caption": "Геометрические формы и разложенные на плоскости объекты в стиле Пикассо."
+  },
+  {
+    "style": "golden_hour",
+    "file": "preset_golden_hour.jpg",
+    "title": "Золотой час",
+    "caption": "Мягкий, теплый свет заката или рассвета. Идеально для портретов."
+  },
+  {
+    "style": "high_fashion",
+    "file": "preset_high_fashion.jpg",
+    "title": "Высокая мода",
+    "caption": "Авангардные образы, необычные позы и концептуальный подход."
+  },
+  {
+    "style": "boudoir",
+    "file": "preset_boudoir.jpg",
+    "title": "Будуар",
+    "caption": "Чувственные и интимные портреты в элегантной обстановке."
+  },
+  {
+    "style": "food_photography",
+    "file": "preset_food_photography.jpg",
+    "title": "Фуд-фото",
+    "caption": "Сделайте ваше фото таким же аппетитным, как блюдо от шеф-повара."
+  },
+  {
+    "style": "travel_blogger",
+    "file": "preset_travel_blogger.jpg",
+    "title": "Тревел-блогер",
+    "caption": "Яркие и вдохновляющие кадры из путешествий по всему миру."
+  },
+  {
+    "style": "sketch",
+    "file": "preset_sketch.jpg",
+    "title": "Карандашный набросок",
+    "caption": "Превратите фото в эскиз, нарисованный карандашом."
+  },
+  {
+    "style": "sticker",
+    "file": "preset_sticker.jpg",
+    "title": "Стикер",
+    "caption": "Яркий и забавный стикер с вашим лицом для Telegram."
+  }
+]
