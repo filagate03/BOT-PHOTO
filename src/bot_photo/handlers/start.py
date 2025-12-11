@@ -101,18 +101,18 @@ async def _send_welcome_message(message: types.Message, examples_service) -> Non
     )
     
     examples = list(examples_service.list_examples())[:3]
-    media = []
     
-    # Используем первое изображение с Gemini_Generated_Image...
-    # Оно уже должно быть в манифесте
+    # Используем первое изображение с Gemini_Generated_Image... или любой доступный
     if examples:
-        # Находим наш специальный пример
         special_example = next((e for e in examples if "Gemini_Generated" in e.file_path.name), examples[0])
         
         photo = FSInputFile(special_example.file_path)
-        # Отправляем одно фото с приветственным текстом
-        await message.answer_photo(photo, caption=welcome_text)
-    else: 
+        try:
+            await message.answer_photo(photo, caption=welcome_text)
+        except Exception:
+            # Если Telegram даёт таймаут или не принимает файл, покажем текст без фото
+            await message.answer(welcome_text + "\n\n(Пример не отправился, попробуй позже.)")
+    else:
         await message.answer(welcome_text)
 
 
