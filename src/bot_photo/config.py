@@ -14,6 +14,9 @@ def _default_path(relative: str) -> Path:
 
 class Settings(BaseSettings):
     bot_token: str = Field(..., alias="TELEGRAM_BOT_TOKEN")
+    crypto_bot_token: str = Field(..., alias="CRYPTO_BOT_TOKEN")
+    crypto_bot_network: str = Field("TEST_NET", alias="CRYPTO_BOT_NETWORK")
+    crypto_rub_rate: float = Field(90.0, alias="CRYPTO_RUB_RATE")
     nano_banana_api_key: str = Field(..., alias="NANO_BANANA_API_KEY")
     nano_banana_base_url: str = Field("https://api.artemox.com", alias="NANO_BANANA_BASE_URL")
     nano_banana_model: str = Field("gemini-2.5-flash-image-preview", alias="NANO_BANANA_MODEL")
@@ -37,7 +40,10 @@ class Settings(BaseSettings):
     )
     @classmethod
     def expand_path(cls, value: str | Path) -> Path:
-        return Path(value).expanduser().resolve()
+        path = Path(value).expanduser()
+        if not path.is_absolute():
+            path = ROOT_DIR / path
+        return path.resolve()
 
     @field_validator("admin_ids", mode="before")
     @classmethod
