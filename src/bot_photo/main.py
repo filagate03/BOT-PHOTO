@@ -18,7 +18,8 @@ from .repositories.prompts import PromptRepository
 from .repositories.sessions import SessionRepository
 from .repositories.usage import UsageRepository
 from .repositories.users import UserRepository
-from .services import ExamplesService, NanoBananaClient, RateLimitService, TokenService
+from .repositories.payments import PaymentRepository
+from .services import ExamplesService, NanoBananaClient, RateLimitService, TokenService, CryptoPayService
 from .storage import FileStorage
 from .utils import init_context
 
@@ -43,6 +44,7 @@ async def main() -> None:
     sessions_repo = SessionRepository(database)
     prompts_repo = PromptRepository(database)
     usage_repo = UsageRepository(database)
+    payments_repo = PaymentRepository(database)
 
     file_storage = FileStorage(settings.faces_path, settings.sessions_path)
     examples_service = ExamplesService(settings.examples_path)
@@ -55,6 +57,10 @@ async def main() -> None:
         model=settings.nano_banana_model,
         fallback_model=settings.nano_banana_fallback_model,
     )
+    crypto_pay_service = CryptoPayService(
+        token=settings.crypto_bot_token,
+        network=settings.crypto_bot_network,
+    )
 
     init_context(
         settings=settings,
@@ -65,12 +71,14 @@ async def main() -> None:
             "sessions": sessions_repo,
             "prompts": prompts_repo,
             "usage": usage_repo,
+            "payments": payments_repo,
         },
         services={
             "tokens": token_service,
             "limits": limit_service,
             "nano": nano_client,
             "examples": examples_service,
+            "crypto_pay": crypto_pay_service,
         },
         file_storage=file_storage,
     )
@@ -83,6 +91,7 @@ async def main() -> None:
     try:
         await dp.start_polling(bot)
     finally:
+        await crypto_pay_service.close()
         await nano_client.close()
         await database.close()
 
