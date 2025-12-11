@@ -54,3 +54,18 @@ CREATE TABLE IF NOT EXISTS usage_events (
     kind TEXT NOT NULL,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE IF NOT EXISTS payments (
+    invoice_id INTEGER PRIMARY KEY,
+    user_id INTEGER NOT NULL REFERENCES users(telegram_id) ON DELETE CASCADE,
+    amount_usdt REAL NOT NULL,
+    tokens INTEGER NOT NULL,
+    status TEXT NOT NULL DEFAULT 'pending',
+    invoice_url TEXT,
+    payload TEXT,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    paid_at TEXT,
+    credited_at TEXT
+);
+
+CREATE INDEX IF NOT EXISTS idx_payments_user ON payments(user_id);
