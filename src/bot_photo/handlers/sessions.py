@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import base64
+import logging
 from pathlib import Path
 from typing import Any
 
@@ -22,71 +23,55 @@ from ..utils import (
 )
 
 SESSION_STYLES: list[tuple[str, str]] = [
-    ("haute_couture_runway", "Показ haute couture"),
+    ("haute_couture_runway", "Подиум haute couture"),
     ("red_carpet_premiere", "Красная дорожка премьеры"),
-    ("eiffel_tower_evening", "У Эйфелевой башни вечером"),
+    ("eiffel_tower_evening", "Париж, Эйфелева башня вечером"),
     ("santorini_sunrise", "Санторини на рассвете"),
     ("dubai_rooftop", "Дубай, вид с крыши"),
     ("tokyo_neon_street", "Токио, неоновая улица"),
-    ("new_york_rooftop", "Нью-Йорк, съёмка на крыше"),
-    ("milan_fashion_week", "Милан, закулисье Fashion Week"),
-    ("paris_sidewalk_cafe", "Париж, уличное кафе"),
-    ("london_rain_editorial", "Лондон, дождевой editorial"),
+    ("new_york_rooftop", "Нью-Йорк, крыши небоскрёбов"),
+    ("milan_fashion_week", "Милан, Fashion Week"),
+    ("paris_sidewalk_cafe", "Парижское уличное кафе"),
+    ("london_rain_editorial", "Лондон, дождливый editorial"),
     ("yacht_deck_sunset", "Яхта на закате"),
-    ("private_jet_cabin", "Каюта частного джета"),
+    ("private_jet_cabin", "Салон частного джета"),
     ("luxury_hotel_suite", "Люкс в отеле"),
     ("art_gallery_minimal", "Минималистичная галерея"),
-    ("royal_ballroom", "Королевский бальный зал"),
+    ("royal_ballroom", "Королевский бал"),
     ("mediterranean_villa", "Вилла на Средиземном море"),
     ("alpine_ski_chalet", "Альпийское шале"),
     ("desert_supercar", "Суперкар в пустыне"),
     ("vineyard_golden_hour", "Виноградник на закате"),
-    ("maldives_beach", "Мальдивы, рассвет на пляже"),
-    ("tropical_rainforest_mist", "Туманный тропический лес"),
-    ("snowy_forest_coat", "Заснеженный лес, пальто"),
-    ("urban_loft_window", "Лофт у панорамных окон"),
-    ("marble_spa_retreat", "Мраморный спа"),
-    ("helipad_twilight", "Вертолётная площадка в сумерках"),
-    ("rooftop_pool_party", "Вечеринка у бассейна на крыше"),
-    ("seaside_boardwalk", "Прогулка у моря"),
-    ("bridal_editorial", "Бридал-эдиториал"),
-    ("street_style_editorial", "Street style съёмка"),
-    ("art_deco_suite", "Ар-деко апартаменты"),
-    ("museum_hall", "Зал музея"),
-    ("cozy_chalet_fireplace", "Шале у камина"),
-    ("greenhouse_bloom", "Оранжерея в цвету"),
-    ("opera_house_grand_staircase", "Лестница оперного театра"),
-    ("venice_grand_canal", "Венеция, Гранд-канал"),
-    ("moroccan_riad", "Марокканский риад"),
-    ("bali_rice_terrace", "Бали, рисовые террасы"),
-    ("taj_mahal_dawn", "Тадж-Махал на рассвете"),
-    ("safari_lodge", "Сафари-лодж"),
-    ("renaissance_courtyard", "Двор эпохи Ренессанса"),
-    ("hollywood_backlot", "Павильон Голливуда"),
-    ("golden_hour_garden", "Сад в золотой час"),
-    ("fantasy_world", "Фэнтези-мир"),
-    ("cyberpunk_city", "Киберпанк-город"),
-    ("sci_fi_spaceport", "Научно-фантастический космопорт"),
-    ("steampunk_city", "Стимпанк-город"),
-    ("mythic_forest", "Мифический лес"),
-    ("celestial_palace", "Небесный дворец"),
-    ("underwater_atlantis", "Подводная Атлантида"),
-    ("neon_dreamscape", "Неоновый сон"),
-    ("dragon_mountain_keep", "Крепость на горе драконов"),
-    ("enchanted_castle", "Заколдованный замок"),
-    ("floating_sky_islands", "Парящие острова в небе"),
-    ("aurora_ice_palace", "Ледяной дворец и северное сияние"),
-    ("ancient_ruins_magic", "Древние руины с магией"),
-    ("galactic_couture", "Галактический кутюр"),
-    ("futuristic_runway", "Футуристический подиум"),
-    ("phoenix_rebirth", "Возрождение феникса"),
-    ("lunar_base_ceremony", "Церемония на лунной базе"),
-    ("frost_giant_peak", "Пик ледяных великанов"),
+    ("maldives_beach", "Мальдивы, пляж"),
+    ("moscow_red_square", "Москва, Красная площадь"),
+    ("st_petersburg_roofs", "Питер, крыши"),
+    ("sochi_yacht_marina", "Сочи, яхтенная марина"),
+    ("baikal_ice", "Байкал, лёд"),
+    ("cozy_coffee_shop", "Уютная кофейня"),
+    ("city_business_meeting", "Офис, деловая встреча"),
+    ("airport_traveler", "Аэропорт, путешественник"),
+    ("university_library", "Университетская библиотека"),
+    ("music_festival", "Музыкальный фестиваль"),
+    ("nightclub_neon", "Ночной клуб, неон"),
+    ("streetwear_alley", "Стритстайл во дворе"),
+    ("old_town_walk", "Прогулка по старому городу"),
+    ("winter_christmas_market", "Зимняя ярмарка"),
+    ("beach_party", "Вечеринка на пляже"),
+    ("mountain_hike", "Поход в горах"),
+    ("wedding_guest", "Гость на свадьбе"),
+    ("fitness_gym", "Спортивный зал"),
+    ("medical_lab_coat", "Врач/лаборант в халате"),
+    ("chef_kitchen", "Шеф-повар на кухне"),
+    ("halloween_costume", "Хэллоуин-костюм"),
+    ("medieval_knight", "Средневековые доспехи"),
+    ("cosplay_anime", "Косплей аниме"),
 ]
 STYLE_LABELS = dict(SESSION_STYLES)
 MAX_FACES = 10
 
 router = Router(name="sessions")
+
+
 
 
 def _face_progress_keyboard() -> InlineKeyboardMarkup:
@@ -124,6 +109,8 @@ async def start_session(callback: types.CallbackQuery, state: FSMContext) -> Non
     if user and user.is_blocked:
         await callback.answer("Аккаунт заблокирован. Напиши в поддержку.", show_alert=True)
         return
+
+    logging.debug("Start session user=%s tokens=%s", user.telegram_id if user else None, user.tokens if user else None)
 
     await state.set_state(PhotoSessionState.choosing_style)
     await callback.message.answer(
@@ -349,7 +336,7 @@ async def handle_prompt_default(callback: types.CallbackQuery, state: FSMContext
         await callback.answer("Начни фотосессию заново.", show_alert=True)
         await state.clear()
         return
-    await _start_generation(callback.message, state, style, orientation, faces_state, None)
+    await _start_generation(callback.message, state, style, orientation, faces_state, None, actor=callback.from_user)
     await callback.answer()
 
 
@@ -367,7 +354,7 @@ async def handle_session_prompt(message: types.Message, state: FSMContext) -> No
     if not prompt:
         await message.answer("Нужно хотя бы несколько слов 🙂")
         return
-    await _start_generation(message, state, style, orientation, faces_state, prompt)
+    await _start_generation(message, state, style, orientation, faces_state, prompt, actor=message.from_user)
 
 
 
@@ -378,13 +365,14 @@ async def _start_generation(
     orientation: str,
     faces: list[dict[str, Any]],
     prompt: str | None,
+    actor: types.User,
 ) -> None:
     settings = get_settings(message.bot)
     token_service = get_token_service(message.bot)
     users_repo = get_users_repo(message.bot)
     sessions_repo = get_sessions_repo(message.bot)
     examples_service = get_examples_service(message.bot)
-    user = await _get_or_create_user(message.bot, message.from_user)
+    user = await _get_or_create_user(message.bot, actor)
     if not user:
         await message.answer("Не удалось получить профиль. Нажми /start.")
         return
@@ -395,6 +383,7 @@ async def _start_generation(
 
     cost = settings.cost_per_session
     balance_before = await token_service.balance(user.telegram_id)
+    logging.debug("Tokens before spend user=%s balance=%s cost=%s", user.telegram_id, balance_before, cost)
     if balance_before < cost:
         await message.answer(
             f"Недостаточно токенов: нужно {cost}, у тебя {balance_before}. Открой профиль и пополни баланс."
@@ -402,6 +391,7 @@ async def _start_generation(
         return
 
     balance_left = await token_service.spend(user.telegram_id, cost)
+    logging.debug("Tokens after spend user=%s balance=%s", user.telegram_id, balance_left)
     await message.answer(f"Списано {cost} токенов. Остаток: {balance_left}.")
     session = await sessions_repo.create_session(
         user_id=user.telegram_id,
