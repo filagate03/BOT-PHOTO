@@ -11,10 +11,12 @@ from ..repositories.prompts import PromptRepository
 from ..repositories.sessions import SessionRepository
 from ..repositories.usage import UsageRepository
 from ..repositories.users import UserRepository
+from ..repositories.payments import PaymentRepository
 from ..services.examples import ExamplesService
 from ..services.limits import RateLimitService
 from ..services.nano_banana import NanoBananaClient
 from ..services.tokens import TokenService
+from ..services.crypto_pay import CryptoPayService
 from ..storage import FileStorage
 
 _APP_CONTEXT: dict[str, Any] = {}
@@ -81,6 +83,10 @@ def get_usage_repo(bot: Bot | None) -> UsageRepository:
     return get_repo(bot, "usage")
 
 
+def get_payments_repo(bot: Bot | None) -> PaymentRepository:
+    return get_repo(bot, "payments")
+
+
 def get_token_service(bot: Bot | None) -> TokenService:
     return get_service(bot, "tokens")
 
@@ -99,3 +105,7 @@ def get_examples_service(bot: Bot | None) -> ExamplesService:
 
 def get_file_storage(bot: Bot | None) -> FileStorage:
     return _get_context("file_storage")
+
+
+def get_crypto_pay_service(bot: Bot | None) -> CryptoPayService:
+    return get_service(bot, "crypto_pay")
