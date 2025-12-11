@@ -3,6 +3,7 @@ from __future__ import annotations
 from typing import Any, Callable, Dict, Awaitable
 
 from aiogram import BaseMiddleware
+from aiogram import types
 from aiogram.types import TelegramObject
 
 from ..config import Settings
@@ -32,4 +33,20 @@ class UserRegistrationMiddleware(BaseMiddleware):
                 hourly_limit=self._settings.hourly_limit,
             )
             data["user"] = user
+            if not user.agreement_accepted_at and not self._is_agreement_flow(event):
+                await self._send_agreement_hint(event)
+                return None
         return await handler(event, data)
+
+    def _is_agreement_flow(self, event: TelegramObject) -> bool:
+        if isinstance(event, types.Message):
+            return bool(event.text and event.text.startswith("/start"))
+        if isinstance(event, types.CallbackQuery):
+            return bool(event.data and event.data.startswith("agreement:"))
+        return False
+
+    async def _send_agreement_hint(self, event: TelegramObject) -> None:
+        if isinstance(event, types.Message):
+            await event.answer("Нужно принять соглашение. Нажми /start, чтобы продолжить.")
+        elif isinstance(event, types.CallbackQuery):
+            await event.answer("Нужно принять соглашение. Нажми /start.", show_alert=True)
