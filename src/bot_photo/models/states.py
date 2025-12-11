@@ -22,5 +22,6 @@ class PhotoSessionState(StatesGroup):
 
 
 class PromptState(StatesGroup):
+    waiting_face = State()
     waiting_text = State()
     processing = State()
