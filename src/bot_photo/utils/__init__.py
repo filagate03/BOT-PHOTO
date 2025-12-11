@@ -13,6 +13,8 @@ from .context import (
     get_token_service,
     get_usage_repo,
     get_users_repo,
+    get_payments_repo,
+    get_crypto_pay_service,
     init_context,
 )
 
@@ -31,5 +33,7 @@ __all__ = [
     "get_token_service",
     "get_usage_repo",
     "get_users_repo",
+    "get_payments_repo",
+    "get_crypto_pay_service",
     "init_context",
 ]
