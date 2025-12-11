@@ -44,6 +44,10 @@ class FaceRepository(BaseRepository):
             "UPDATE faces SET file_path=? WHERE id=? AND user_id=?", (file_path, face_id, user_id)
         )
 
+    async def get_by_id(self, face_id: int, user_id: int) -> Face | None:
+        row = await self.db.fetchone("SELECT * FROM faces WHERE id=? AND user_id=?", (face_id, user_id))
+        return self._row_to_face(row) if row else None
+
     def _row_to_face(self, row: dict[str, Any]) -> Face:
         return Face(
             id=row["id"],
