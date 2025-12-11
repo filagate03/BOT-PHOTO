@@ -97,12 +97,21 @@ class NanoBananaClient:
                 return await self._with_fallback(lambda m: _request(m, False))
             raise
 
-    async def generate_prompt(self, prompt: str, template: str | None = None) -> dict[str, Any]:
+    async def generate_prompt(
+        self,
+        prompt: str,
+        template: str | None = None,
+        face_urls: Iterable[str] | None = None,
+    ) -> dict[str, Any]:
         text_prompt = f"{template}: {prompt}" if template else prompt
 
         async def _request(model: str) -> dict[str, Any]:
+            parts: list[dict[str, Any]] = []
+            if face_urls:
+                parts.extend(self._inline_face_parts(face_urls))
+            parts.append({"text": text_prompt})
             payload = {
-                "contents": [{"role": "user", "parts": [{"text": text_prompt}]}],
+                "contents": [{"role": "user", "parts": parts}],
                 "safetySettings": self._safety_settings(),
             }
             return await self._post(f"/models/{model}:generateContent", payload)
