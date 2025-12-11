@@ -48,8 +48,9 @@ def faces_keyboard() -> InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
     builder.button(text="📤 Загрузить лицо", callback_data="faces:upload")
     builder.button(text="🧑‍🦰 Выбрать сохранённое", callback_data="faces:list")
+    builder.button(text="🗑 Удалить лицо", callback_data="faces:delete_list")
+    builder.button(text="⬅️ Назад", callback_data="menu:home")
     builder.button(text="✅ Готово", callback_data="faces:done")
-    builder.button(text="🏠 Домой", callback_data="menu:home")
     return builder.adjust(1).as_markup()
 
 
